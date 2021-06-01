@@ -9,7 +9,6 @@ import random
 import time
 import sys
 
-
 class Card:
     def __init__(self, num, suit, rev):
         self.number = num
@@ -27,18 +26,58 @@ class Card:
         if self.number == 1:
             time.sleep(1)
             print("ace", "of", self.suit)
+            print("_____")
+            print("|A  |")
+            print("|   |")
+            print("| {} |".format(self.suit[0]))
+            print("|   |")
+            print("|  A|")
+            print("|___|")
+
         elif self.number == 11:
             time.sleep(1)
             print("jack", "of", self.suit)
+            print("_____")
+            print("|J  |")
+            print("|   |")
+            print("| {} |".format(self.suit[0]))
+            print("|   |")
+            print("|  J|")
+            print("|___|")
+
         elif self.number == 12:
             time.sleep(1)
             print("queen", "of", self.suit)
+            print("_____")
+            print("|Q  |")
+            print("|   |")
+            print("| {} |".format(self.suit[0]))
+            print("|   |")
+            print("|  Q|")
+            print("|___|")
+
         elif self.number == 13:
             time.sleep(1)
             print("king", "of", self.suit)
+            print("_____")
+            print("|K  |")
+            print("|   |")
+            print("| {} |".format(self.suit[0]))
+            print("|   |")
+            print("|  K|")
+            print("|___|")
+
         else:
             time.sleep(1)
             print(self.number, "of", self.suit)
+            print("_____")
+            print("|{}  |".format(self.number))
+            print("|   |")
+            print("| {} |".format(self.suit[0]))
+            print("|   |")
+            print("|  {}|".format(self.number))
+            print("|___|")
+
 
 
 class Deck:
@@ -88,6 +127,8 @@ class Player:
                 else:
                     time.sleep(1)
                     print("a card face down")
+
+
             if len(self.hand) == 0:
                 time.sleep(1)
                 print("empty hand")
@@ -170,6 +211,13 @@ class Dealer(Player):
                 else:
                     time.sleep(1)
                     print("a card face down")
+                    print("_____")
+                    print("|# #|")
+                    print("| # |")
+                    print("|# #|")
+                    print("| # |")
+                    print("|# #|")
+                    print("_____")
             if len(self.hand) == 0:
                 time.sleep(1)
                 print("empty hand")
@@ -228,15 +276,12 @@ class Game:
                         time.sleep(1)
                         print("## insufficient chips ##")
                         player.bet = self.min_bet - 1
-
                     else:
                         player.chips -= player.bet
                 else:
                     time.sleep(1)
                     print("## you need to bet more than {}. ##".format(self.min_bet))
                     player.bet = self.min_bet - 1
-
-            player.chips -= player.bet
 
     def pay(self, player):
         if player.value() == 21:
@@ -297,6 +342,7 @@ class Game:
             player.status = "in"
             player.hand = []
             player.bet = []
+        self.dealer.hand = []
 
     def turn(self):
 
