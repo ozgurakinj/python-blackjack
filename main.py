@@ -10,6 +10,7 @@ import time
 import sys
 
 class Card:
+    
     def __init__(self, num, suit, rev):
         self.number = num
         self.value = 0
@@ -21,62 +22,21 @@ class Card:
 
         self.suit = suit
         self.revealed = rev
-
+    symbols={"1":"A","11":"J","12:"Q",13:"K"}
     def show(self):
-        if self.number == 1:
-            time.sleep(1)
-            print("ace", "of", self.suit)
-            print("_____")
-            print("|A  |")
-            print("|   |")
-            print("| {} |".format(self.suit[0]))
-            print("|   |")
-            print("|  A|")
-            print("|___|")
-
-        elif self.number == 11:
-            time.sleep(1)
-            print("jack", "of", self.suit)
-            print("_____")
-            print("|J  |")
-            print("|   |")
-            print("| {} |".format(self.suit[0]))
-            print("|   |")
-            print("|  J|")
-            print("|___|")
-
-        elif self.number == 12:
-            time.sleep(1)
-            print("queen", "of", self.suit)
-            print("_____")
-            print("|Q  |")
-            print("|   |")
-            print("| {} |".format(self.suit[0]))
-            print("|   |")
-            print("|  Q|")
-            print("|___|")
-
-        elif self.number == 13:
-            time.sleep(1)
-            print("king", "of", self.suit)
-            print("_____")
-            print("|K  |")
-            print("|   |")
-            print("| {} |".format(self.suit[0]))
-            print("|   |")
-            print("|  K|")
-            print("|___|")
-
+        if str(self.number) in symbols.keys():
+             card_symbol=symbols[str(self.number)]
         else:
-            time.sleep(1)
-            print(self.number, "of", self.suit)
-            print("_____")
-            print("|{}  |".format(self.number))
-            print("|   |")
-            print("| {} |".format(self.suit[0]))
-            print("|   |")
-            print("|  {}|".format(self.number))
-            print("|___|")
+             card_symbol=self.number
+        time.sleep(1)
+        print(self.number, "of", self.suit)
+        print("_____")
+        print("|{}  |".format(card_symbol))
+        print("|   |")
+        print("| {} |".format(self.suit[0]))
+        print("|   |")
+        print("|  {}|".format(card_symbol))
+        print("|___|")
 
 
 
