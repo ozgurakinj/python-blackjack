@@ -22,14 +22,17 @@ class Card:
 
         self.suit = suit
         self.revealed = rev
-    symbols={"1":"A","11":"J","12:"Q",13:"K"}
     def show(self):
+        symbols={"1":"A","11":"J","12":"Q","13":"K"}
+        suits={"1":"ace","11":"jack","12":"queen","13":"king"}
         if str(self.number) in symbols.keys():
              card_symbol=symbols[str(self.number)]
+             card_name=suits[str(self.number)]
         else:
              card_symbol=self.number
+             card_name=self.number
         time.sleep(1)
-        print(self.number, "of", self.suit)
+        print(card_name, "of", self.suit)
         print("_____")
         print("|{}  |".format(card_symbol))
         print("|   |")
